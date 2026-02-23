@@ -1,13 +1,28 @@
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
-import { Users, Clock, Trophy, Code } from "lucide-react";
 
-const stats = [
-  { icon: Users, value: "500+", label: "Participants" },
-  { icon: Clock, value: "36", label: "Hours" },
-  { icon: Trophy, value: "₹50K+", label: "In Prizes" },
-  { icon: Code, value: "100+", label: "Projects" },
+const cards = [
+  {
+    icon: "💡",
+    title: "What is InnovateX?",
+    content: "InnovateX is a competitive hackathon where teams collaborate to solve real-world problems, build innovative solutions, and showcase their technical prowess. It's more than just coding – it's a platform to learn, network, and win!",
+  },
+  {
+    icon: "🎯",
+    title: "Who Can Participate?",
+    content: "ALL STUDENTS WELCOME! Class 12 students and UG students from ANY college can participate. Form teams of 3-4 members and get ready to compete. One participant can only be part of ONE team.",
+  },
+  {
+    icon: "⚡",
+    title: "Why Participate?",
+    list: [
+      "💰 Win cash prizes worth ₹1,600+",
+      "🏆 Earn certificates of participation",
+      "🎤 Learn from industry experts",
+      "🤝 Networking opportunities",
+      "✨ Boost your resume & portfolio",
+    ],
+  },
 ];
 
 const AboutSection = () => {
@@ -21,32 +36,44 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            About <span className="text-gradient-cyan">INNOVEX</span>
-          </h2>
-          <p className="text-muted-foreground max-w-2xl mx-auto text-lg">
-            INNOVEX 2026 is a national-level hackathon designed to push boundaries.
-            Bring your wildest ideas, form teams, and build something extraordinary
-            in just 36 hours.
-          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">About InnovateX 🚀</h2>
+          <div className="section-title-bar" />
         </motion.div>
 
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6">
-          {stats.map((stat, i) => (
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="text-center text-muted-foreground text-lg max-w-3xl mx-auto mb-12"
+        >
+          InnovateX is not just a hackathon—it's a launchpad for your ideas. Join India's brightest young minds in an intense, rewarding coding marathon that challenges you to innovate, collaborate, and create solutions that matter.
+        </motion.p>
+
+        <div className="grid md:grid-cols-3 gap-6">
+          {cards.map((card, i) => (
             <motion.div
-              key={stat.label}
+              key={card.title}
               initial={{ opacity: 0, y: 30 }}
               animate={inView ? { opacity: 1, y: 0 } : {}}
               transition={{ duration: 0.5, delay: i * 0.1 }}
-              className="glass-card-hover p-6 md:p-8 text-center"
+              className="glass-card-hover p-7"
             >
-              <stat.icon className="w-8 h-8 text-primary mx-auto mb-4" />
-              <div className="font-display text-2xl md:text-3xl font-bold text-foreground mb-1">
-                {stat.value}
-              </div>
-              <div className="text-sm text-muted-foreground">{stat.label}</div>
+              <div className="text-4xl mb-4">{card.icon}</div>
+              <h3 className="font-display text-lg font-bold text-primary mb-3">{card.title}</h3>
+              {card.content && (
+                <p className="text-muted-foreground leading-relaxed text-sm">{card.content}</p>
+              )}
+              {card.list && (
+                <ul className="space-y-2 text-sm text-muted-foreground">
+                  {card.list.map((item) => (
+                    <li key={item} className="py-1.5 border-b border-border/30 last:border-0">
+                      {item}
+                    </li>
+                  ))}
+                </ul>
+              )}
             </motion.div>
           ))}
         </div>

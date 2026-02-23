@@ -43,7 +43,6 @@ const RegistrationForm = () => {
       return;
     }
 
-    // Validate
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     if (!emailRegex.test(form.leader_email)) {
       setError("Please enter a valid email address.");
@@ -55,26 +54,18 @@ const RegistrationForm = () => {
     }
 
     setLoading(true);
-
     try {
       const uniqueId = generateUniqueId();
-
-      // Upload screenshot
       const fileExt = file.name.split(".").pop();
       const filePath = `${uniqueId}.${fileExt}`;
+
       const { error: uploadError } = await supabase.storage
         .from("payment-screenshots")
         .upload(filePath, file);
-
       if (uploadError) throw new Error("Failed to upload screenshot. Please try again.");
 
-      // Parse members
-      const membersArray = form.members
-        .split(",")
-        .map((m) => m.trim())
-        .filter(Boolean);
+      const membersArray = form.members.split(",").map((m) => m.trim()).filter(Boolean);
 
-      // Insert registration
       const { error: dbError } = await supabase.from("registrations").insert({
         team_name: form.team_name.trim(),
         leader_name: form.leader_name.trim(),
@@ -85,7 +76,6 @@ const RegistrationForm = () => {
         payment_screenshot_path: filePath,
         unique_id: uniqueId,
       });
-
       if (dbError) throw new Error("Registration failed. Please try again.");
 
       setSuccess({ id: uniqueId });
@@ -101,23 +91,54 @@ const RegistrationForm = () => {
 
   return (
     <section id="register" className="section-padding relative" ref={ref}>
-      <div className="max-w-4xl mx-auto">
+      <div className="max-w-5xl mx-auto">
         <motion.div
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-12"
+          className="text-center mb-8"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            <span className="text-gradient-cyan">Register</span> Your Team
-          </h2>
-          <p className="text-muted-foreground max-w-xl mx-auto">
-            Fill in the details below to secure your spot at INNOVEX 2026.
-          </p>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">Registration Details 📝</h2>
+          <div className="section-title-bar" />
+        </motion.div>
+
+        {/* Limited spots alert */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.1 }}
+          className="registration-gradient mb-8"
+        >
+          <h3 className="font-display text-xl font-bold mb-2">⚡ Limited Spots Available!</h3>
+          <p className="text-muted-foreground">Register before March 23, 2026 to secure your team's spot!</p>
+        </motion.div>
+
+        {/* Fee info cards */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={inView ? { opacity: 1, y: 0 } : {}}
+          transition={{ duration: 0.5, delay: 0.15 }}
+          className="grid grid-cols-3 gap-4 mb-10"
+        >
+          <div className="glass-card p-5 text-center">
+            <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Registration Fee</div>
+            <div className="font-display text-2xl font-bold text-foreground">₹150/team</div>
+            <div className="text-xs text-muted-foreground mt-1">Only ₹37.5 per person!</div>
+          </div>
+          <div className="glass-card p-5 text-center">
+            <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Team Size</div>
+            <div className="font-display text-2xl font-bold text-foreground">3-4 Members</div>
+            <div className="text-xs text-muted-foreground mt-1">Min 3, Max 4</div>
+          </div>
+          <div className="glass-card p-5 text-center">
+            <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Prize Pool</div>
+            <div className="font-display text-2xl font-bold text-foreground">₹1600+</div>
+            <div className="text-xs text-muted-foreground mt-1">+ Certificates!</div>
+          </div>
         </motion.div>
 
         <div className="grid lg:grid-cols-5 gap-8">
-          {/* Payment Info */}
+          {/* Payment info */}
           <motion.div
             initial={{ opacity: 0, x: -30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -125,9 +146,7 @@ const RegistrationForm = () => {
             className="lg:col-span-2"
           >
             <div className="glass-card p-6 sticky top-28">
-              <h3 className="font-display text-lg font-bold text-foreground mb-4">
-                💳 Payment Details
-              </h3>
+              <h3 className="font-display text-lg font-bold text-foreground mb-4">💳 Payment Details</h3>
               <div className="space-y-4 text-sm">
                 <div>
                   <div className="text-muted-foreground mb-1">Registration Fee</div>
@@ -137,7 +156,7 @@ const RegistrationForm = () => {
                 <div className="border-t border-border pt-4">
                   <div className="text-muted-foreground mb-1">UPI ID</div>
                   <div className="font-mono text-foreground bg-muted/50 px-3 py-2 rounded-lg text-sm">
-                    innovex2026@upi
+                    innovatex2026@upi
                   </div>
                 </div>
                 <div className="border-t border-border pt-4">
@@ -152,10 +171,27 @@ const RegistrationForm = () => {
                   Upload payment screenshot after paying ₹150 via UPI.
                 </p>
               </div>
+
+              {/* What to submit */}
+              <div className="mt-6 pt-6 border-t border-border">
+                <h4 className="font-display text-sm font-bold text-foreground mb-3">📝 What You Need to Submit</h4>
+                <ul className="space-y-2 text-xs text-muted-foreground">
+                  {[
+                    "Team Name - Choose a creative team name",
+                    "Team Leader Details - Name, Email, Phone",
+                    "Team Member Details - Names of all 3-4 members",
+                    "College/School Name - Your institution name",
+                    "Payment Proof - Screenshot of ₹150 payment",
+                    "WhatsApp Community - Confirmation of joining",
+                  ].map((item) => (
+                    <li key={item} className="py-1.5 border-b border-border/30 last:border-0">{item}</li>
+                  ))}
+                </ul>
+              </div>
             </div>
           </motion.div>
 
-          {/* Form */}
+          {/* Registration Form */}
           <motion.div
             initial={{ opacity: 0, x: 30 }}
             animate={inView ? { opacity: 1, x: 0 } : {}}
@@ -163,18 +199,20 @@ const RegistrationForm = () => {
             className="lg:col-span-3"
           >
             <form onSubmit={handleSubmit} className="glass-card p-6 md:p-8 space-y-5">
+              <h3 className="font-display text-lg font-bold text-center text-foreground mb-2">
+                🚀 Complete Registration
+              </h3>
+
               {[
                 { name: "team_name", label: "Team Name", type: "text", placeholder: "e.g. Code Crusaders" },
                 { name: "leader_name", label: "Leader Name", type: "text", placeholder: "Full name" },
                 { name: "leader_email", label: "Leader Email", type: "email", placeholder: "email@example.com" },
                 { name: "leader_phone", label: "Leader Phone", type: "tel", placeholder: "10-digit number" },
-                { name: "members", label: "Team Members", type: "text", placeholder: "Name1, Name2, Name3 (comma separated)" },
-                { name: "college", label: "College Name", type: "text", placeholder: "Your college name" },
+                { name: "members", label: "Team Members (comma separated)", type: "text", placeholder: "Name1, Name2, Name3" },
+                { name: "college", label: "College / School Name", type: "text", placeholder: "Your institution name" },
               ].map((field) => (
                 <div key={field.name}>
-                  <label className="block text-sm font-medium text-foreground mb-2">
-                    {field.label}
-                  </label>
+                  <label className="block text-sm font-medium text-foreground mb-2">{field.label}</label>
                   <input
                     type={field.type}
                     name={field.name}
@@ -182,18 +220,16 @@ const RegistrationForm = () => {
                     onChange={handleChange}
                     placeholder={field.placeholder}
                     required
-                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/50 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
+                    className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
                   />
                 </div>
               ))}
 
               {/* File upload */}
               <div>
-                <label className="block text-sm font-medium text-foreground mb-2">
-                  Payment Screenshot
-                </label>
+                <label className="block text-sm font-medium text-foreground mb-2">Payment Screenshot</label>
                 <label className="flex items-center gap-3 px-4 py-3 rounded-xl bg-muted/50 border border-dashed border-border hover:border-primary/50 cursor-pointer transition-colors">
-                  <Upload size={18} className="text-muted-foreground" />
+                  <Upload size={18} className="text-muted-foreground flex-shrink-0" />
                   <span className="text-sm text-muted-foreground truncate">
                     {file ? file.name : "Click to upload screenshot"}
                   </span>
@@ -206,7 +242,6 @@ const RegistrationForm = () => {
                 </label>
               </div>
 
-              {/* Checkbox */}
               <label className="flex items-start gap-3 cursor-pointer">
                 <input
                   type="checkbox"
@@ -220,25 +255,24 @@ const RegistrationForm = () => {
               </label>
 
               {error && (
-                <div className="text-sm text-destructive bg-destructive/10 px-4 py-3 rounded-xl">
-                  {error}
-                </div>
+                <div className="text-sm text-destructive bg-destructive/10 px-4 py-3 rounded-xl">{error}</div>
               )}
 
               <button
                 type="submit"
                 disabled={loading}
-                className="w-full flex items-center justify-center gap-2 px-6 py-4 rounded-xl font-display font-semibold text-sm uppercase tracking-wider bg-primary text-primary-foreground glow-cyan hover:scale-[1.02] disabled:opacity-50 disabled:hover:scale-100 transition-transform duration-300"
+                className="w-full btn-primary flex items-center justify-center gap-2 rounded-xl disabled:opacity-50 disabled:hover:transform-none"
               >
                 {loading ? (
-                  <>
-                    <Loader2 size={18} className="animate-spin" />
-                    Registering...
-                  </>
+                  <><Loader2 size={18} className="animate-spin" /> Registering...</>
                 ) : (
-                  "Register Now"
+                  "🚀 Complete Registration"
                 )}
               </button>
+
+              <p className="text-xs text-center text-muted-foreground">
+                ⏰ Registration closes on March 23, 2026
+              </p>
             </form>
           </motion.div>
         </div>
@@ -259,30 +293,17 @@ const RegistrationForm = () => {
               exit={{ scale: 0.8, opacity: 0 }}
               className="glass-card p-8 md:p-10 max-w-md w-full text-center relative glow-green"
             >
-              <button
-                onClick={() => setSuccess(null)}
-                className="absolute top-4 right-4 text-muted-foreground hover:text-foreground"
-              >
+              <button onClick={() => setSuccess(null)} className="absolute top-4 right-4 text-muted-foreground hover:text-foreground">
                 <X size={20} />
               </button>
               <CheckCircle className="w-16 h-16 text-neon-green mx-auto mb-4" />
-              <h3 className="font-display text-2xl font-bold text-foreground mb-2">
-                Registration Successful!
-              </h3>
-              <p className="text-muted-foreground mb-6">
-                Your team has been registered for INNOVEX 2026.
-              </p>
+              <h3 className="font-display text-2xl font-bold text-foreground mb-2">Registration Successful!</h3>
+              <p className="text-muted-foreground mb-6">Your team has been registered for InnovateX 2026.</p>
               <div className="bg-muted/50 rounded-xl p-4 mb-4">
-                <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">
-                  Your Registration ID
-                </div>
-                <div className="font-display text-2xl font-black text-primary">
-                  {success.id}
-                </div>
+                <div className="text-xs text-muted-foreground mb-1 uppercase tracking-wider">Your Registration ID</div>
+                <div className="font-display text-2xl font-black text-primary">{success.id}</div>
               </div>
-              <p className="text-xs text-muted-foreground">
-                Save this ID for future reference. You'll also receive a confirmation email.
-              </p>
+              <p className="text-xs text-muted-foreground">Save this ID for future reference.</p>
             </motion.div>
           </motion.div>
         )}

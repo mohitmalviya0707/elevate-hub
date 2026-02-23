@@ -2,12 +2,26 @@ import { motion, useInView } from "framer-motion";
 import { useRef } from "react";
 
 const events = [
-  { time: "Day 0 — Eve", title: "Check-in & Kickoff", desc: "Team registration, orientation, and opening ceremony." },
-  { time: "Day 1 — 9 AM", title: "Hacking Begins", desc: "Start building! Mentors available for guidance." },
-  { time: "Day 1 — 6 PM", title: "Checkpoint 1", desc: "First progress check with organizers." },
-  { time: "Day 2 — 9 AM", title: "Checkpoint 2", desc: "Mid-hackathon review and mentor feedback." },
-  { time: "Day 2 — 3 PM", title: "Submissions Due", desc: "Final code submission and demo prep." },
-  { time: "Day 2 — 5 PM", title: "Demo & Awards", desc: "Top teams present. Winners announced!" },
+  {
+    icon: "📝",
+    title: "Registration Opens",
+    date: "February 10, 2026",
+    desc: "Registration portal goes live. Start forming your teams and join our WhatsApp community!",
+  },
+  {
+    icon: "⏰",
+    title: "Registration Closes",
+    date: "March 23, 2026",
+    desc: "Last date to register. Pay ₹150 and secure your spot!",
+  },
+  {
+    icon: "🚀",
+    title: "InnovateX Day - Main Event",
+    date: "March 24, 2026",
+    time: "10:00 AM - 4:30 PM",
+    venue: "SBITM Campus",
+    desc: "Opening ceremony, coding session, mentorship, presentations, and awards!",
+  },
 ];
 
 const TimelineSection = () => {
@@ -23,39 +37,40 @@ const TimelineSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Event <span className="text-gradient-cyan">Timeline</span>
-          </h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">Event Timeline</h2>
+          <div className="section-title-bar" />
         </motion.div>
 
         <div className="relative">
           {/* Vertical line */}
-          <div className="absolute left-4 md:left-1/2 top-0 bottom-0 w-px bg-border" />
+          <div
+            className="absolute left-5 md:left-1/2 top-0 bottom-0 w-0.5"
+            style={{ background: "linear-gradient(180deg, hsl(var(--neon-blue)), hsl(var(--neon-orange)))" }}
+          />
 
-          <div className="space-y-8">
+          <div className="space-y-12">
             {events.map((event, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: i % 2 === 0 ? -30 : 30 }}
                 animate={inView ? { opacity: 1, x: 0 } : {}}
-                transition={{ duration: 0.5, delay: i * 0.1 }}
-                className={`relative flex items-start gap-6 md:gap-0 ${
+                transition={{ duration: 0.5, delay: i * 0.15 }}
+                className={`relative flex items-start ${
                   i % 2 === 0 ? "md:flex-row" : "md:flex-row-reverse"
                 }`}
               >
                 {/* Dot */}
-                <div className="absolute left-4 md:left-1/2 -translate-x-1/2 w-3 h-3 rounded-full bg-primary glow-cyan z-10 mt-2" />
+                <div className="absolute left-5 md:left-1/2 -translate-x-1/2 w-5 h-5 rounded-full bg-primary glow-blue z-10 animate-pulse-dot mt-6" />
 
                 {/* Content */}
-                <div className={`ml-12 md:ml-0 md:w-1/2 ${i % 2 === 0 ? "md:pr-12 md:text-right" : "md:pl-12"}`}>
-                  <div className="glass-card p-5">
-                    <div className="text-xs font-display text-primary font-semibold mb-1 uppercase tracking-wider">
-                      {event.time}
-                    </div>
-                    <h3 className="font-display text-base font-bold text-foreground mb-1">
-                      {event.title}
-                    </h3>
-                    <p className="text-sm text-muted-foreground">{event.desc}</p>
+                <div className={`ml-14 md:ml-0 md:w-[45%] ${i % 2 === 0 ? "md:pr-10 md:text-right md:mr-auto" : "md:pl-10 md:ml-auto"}`}>
+                  <div className="glass-card p-6">
+                    <div className="text-2xl mb-2">{event.icon}</div>
+                    <h3 className="font-display text-base font-bold text-primary mb-1">{event.title}</h3>
+                    <p className="text-sm font-semibold text-secondary mb-1">Date: {event.date}</p>
+                    {event.time && <p className="text-sm text-muted-foreground">Time: {event.time}</p>}
+                    {event.venue && <p className="text-sm text-muted-foreground">Venue: {event.venue}</p>}
+                    <p className="text-sm text-muted-foreground mt-2">{event.desc}</p>
                   </div>
                 </div>
               </motion.div>

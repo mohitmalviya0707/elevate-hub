@@ -1,97 +1,97 @@
 import { motion } from "framer-motion";
-import { Calendar, MapPin, ArrowDown } from "lucide-react";
+import { Calendar, Clock, MapPin } from "lucide-react";
 
 const HeroSection = () => {
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden bg-grid">
-      {/* Glow backgrounds */}
-      <div className="absolute inset-0 hero-glow" />
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 w-[600px] h-[600px] rounded-full bg-primary/5 blur-[120px] animate-pulse-glow" />
-      <div className="absolute bottom-1/4 right-1/4 w-[400px] h-[400px] rounded-full bg-secondary/5 blur-[100px] animate-pulse-glow" style={{ animationDelay: "1.5s" }} />
+    <section className="relative min-h-screen flex items-center justify-center pt-20">
+      {/* Radial glow */}
+      <div className="absolute top-1/3 left-1/2 -translate-x-1/2 w-[600px] h-[400px] rounded-full bg-primary/8 blur-[120px]" />
+      <div className="absolute bottom-1/4 right-1/3 w-[300px] h-[300px] rounded-full bg-secondary/6 blur-[100px]" />
 
       <div className="relative z-10 text-center px-4 max-w-5xl mx-auto">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
+        <motion.h2
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
+          className="font-display text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-tight mb-4"
         >
-          <div className="inline-flex items-center gap-2 glass-card px-4 py-2 mb-8 text-sm text-muted-foreground">
-            <span className="w-2 h-2 rounded-full bg-primary animate-pulse" />
-            Registrations Open Now
-          </div>
-        </motion.div>
+          🚀 <span className="text-gradient-brand">INNOVATEX 2026</span>
+        </motion.h2>
 
-        <motion.h1
-          initial={{ opacity: 0, y: 40 }}
+        <motion.p
+          initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-display text-5xl sm:text-6xl md:text-8xl font-black tracking-tight leading-none mb-6"
+          className="font-display text-xl md:text-2xl text-primary mb-6"
         >
-          <span className="text-gradient-cyan">INNOVEX</span>
-          <br />
-          <span className="text-foreground">2026</span>
-        </motion.h1>
+          Code. Innovate. Transform.
+        </motion.p>
 
         <motion.p
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-lg md:text-xl text-muted-foreground max-w-2xl mx-auto mb-8 font-body"
+          className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8"
         >
-          A national-level hackathon where innovation meets execution.
-          <br className="hidden md:block" />
-          Build. Break. Innovate.
+          Join the ultimate hackathon at SBITM Betul! Showcase your skills, win amazing prizes, and network with the best minds.
         </motion.p>
 
+        {/* Event info chips */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4 mb-12"
+          className="flex flex-wrap items-center justify-center gap-4 mb-10"
         >
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
+          <div className="glass-card px-5 py-3 flex items-center gap-2 text-sm">
             <Calendar size={16} className="text-primary" />
-            <span>August 2026</span>
+            <span>March 24, 2026</span>
           </div>
-          <div className="hidden sm:block w-1 h-1 rounded-full bg-muted-foreground" />
-          <div className="flex items-center gap-2 text-muted-foreground text-sm">
-            <MapPin size={16} className="text-secondary" />
-            <span>Your College Campus</span>
+          <div className="glass-card px-5 py-3 flex items-center gap-2 text-sm">
+            <Clock size={16} className="text-secondary" />
+            <span>10 AM - 4:30 PM</span>
+          </div>
+          <div className="glass-card px-5 py-3 flex items-center gap-2 text-sm">
+            <MapPin size={16} className="text-accent" />
+            <span>SBITM Betul</span>
           </div>
         </motion.div>
 
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
+          className="flex flex-col items-center gap-4"
         >
-          <a
-            href="#register"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-display font-semibold text-sm uppercase tracking-wider bg-primary text-primary-foreground glow-cyan hover:scale-105 transition-transform duration-300"
-          >
-            Register Now
+          <a href="#register" className="btn-primary text-base">
+            Register Now →
           </a>
-          <a
-            href="#about"
-            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl font-display font-semibold text-sm uppercase tracking-wider border border-border text-foreground hover:border-primary/50 hover:text-primary transition-all duration-300"
-          >
-            Learn More
-          </a>
+          <p className="text-sm text-muted-foreground">
+            ⚡ Registration closes March 23, 2026
+          </p>
+        </motion.div>
+
+        {/* Stats row */}
+        <motion.div
+          initial={{ opacity: 0, y: 30 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.8, delay: 0.8 }}
+          className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
+        >
+          {[
+            { icon: "💰", value: "₹1600+", label: "Prize Pool" },
+            { icon: "👥", value: "100+", label: "Expected Participants" },
+            { icon: "⏱️", value: "6.5 hrs", label: "Intense Coding" },
+            { icon: "🏆", value: "TOP 2", label: "Winning Teams" },
+          ].map((stat) => (
+            <div key={stat.label} className="glass-card p-5 text-center">
+              <div className="text-2xl mb-1">{stat.icon}</div>
+              <div className="font-display text-xl md:text-2xl font-bold text-primary">{stat.value}</div>
+              <div className="text-xs text-muted-foreground mt-1">{stat.label}</div>
+            </div>
+          ))}
         </motion.div>
       </div>
-
-      {/* Scroll indicator */}
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ delay: 1.5 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2"
-      >
-        <motion.div animate={{ y: [0, 8, 0] }} transition={{ repeat: Infinity, duration: 2 }}>
-          <ArrowDown size={20} className="text-muted-foreground" />
-        </motion.div>
-      </motion.div>
     </section>
   );
 };
