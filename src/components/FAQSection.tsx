@@ -8,12 +8,12 @@ import {
 } from "@/components/ui/accordion";
 
 const faqs = [
-  { q: "Who can participate?", a: "Any college student from India can participate. Teams of 2–4 members are allowed." },
-  { q: "Is there a registration fee?", a: "Yes, a nominal fee of ₹150 per team. Payment details are in the registration section." },
-  { q: "Do I need a team?", a: "Yes, you need a team of 2–4 members. Solo participation is not allowed." },
-  { q: "What should I bring?", a: "Your laptop, charger, and lots of energy! We'll provide food, Wi-Fi, and workspace." },
-  { q: "Is it online or offline?", a: "INNOVEX 2026 is an offline hackathon. You'll be hacking on campus!" },
-  { q: "Can I use pre-built projects?", a: "No. All code must be written during the hackathon. You can use frameworks and libraries." },
+  { icon: "🎯", q: "Who can participate?", a: "Class 12 students and UG students from ANY college across India can participate. Just form a team of 3-4 members!" },
+  { icon: "💻", q: "Do I need to bring my own laptop?", a: "Yes! Each participant MUST bring their own laptop with necessary software pre-installed. Make sure it's fully charged as charging points are limited." },
+  { icon: "💰", q: "What's the registration fee?", a: "Just ₹150 per team (that's only ₹37.5 per person for a 4-member team). This covers the entire event including networking opportunities and certificates!" },
+  { icon: "🏆", q: "What can I win?", a: "Winners get cash prizes (1st: ₹1100, 2nd: ₹500), certificates, and networking opportunities with industry experts. All participants receive participation certificates!" },
+  { icon: "📱", q: "Is joining the WhatsApp community mandatory?", a: "Yes! The WhatsApp community is MANDATORY for all participants. You'll get real-time updates, event details, and exclusive opportunities there." },
+  { icon: "⏰", q: "What's the event schedule?", a: "InnovateX 2026 will be held on March 24, 2026, from 10:00 AM to 4:30 PM at SBITM Betul campus. Registration closes on March 23, 2026." },
 ];
 
 const FAQSection = () => {
@@ -27,11 +27,10 @@ const FAQSection = () => {
           initial={{ opacity: 0, y: 40 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
-          className="text-center mb-16"
+          className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-5xl font-bold mb-4">
-            Frequently Asked <span className="text-gradient-cyan">Questions</span>
-          </h2>
+          <h2 className="font-display text-3xl md:text-4xl font-bold">Frequently Asked Questions 💬</h2>
+          <div className="section-title-bar" />
         </motion.div>
 
         <motion.div
@@ -46,8 +45,8 @@ const FAQSection = () => {
                 value={`faq-${i}`}
                 className="glass-card border border-border/50 rounded-xl px-6 overflow-hidden"
               >
-                <AccordionTrigger className="text-left font-body font-medium text-foreground hover:text-primary transition-colors py-5 hover:no-underline">
-                  {faq.q}
+                <AccordionTrigger className="text-left font-body font-medium text-foreground hover:text-primary transition-colors py-5 hover:no-underline gap-3">
+                  <span>{faq.icon} {faq.q}</span>
                 </AccordionTrigger>
                 <AccordionContent className="text-muted-foreground pb-5">
                   {faq.a}
