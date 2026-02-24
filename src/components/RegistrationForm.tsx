@@ -156,7 +156,7 @@ const RegistrationForm = () => {
                 <div className="border-t border-border pt-4">
                   <div className="text-muted-foreground mb-1">UPI ID</div>
                   <div className="font-mono text-foreground bg-muted/50 px-3 py-2 rounded-lg text-sm">
-                    innovatex2026@upi
+                    mohitmalviya0107-1@okaxis
                   </div>
                 </div>
                 <div className="border-t border-border pt-4">
