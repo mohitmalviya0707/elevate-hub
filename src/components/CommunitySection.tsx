@@ -5,6 +5,7 @@ const admins = [
   { name: "Prof. Nilesh Mishra", role: "IIC President", whatsapp: "https://wa.me/919762723690", image: "https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/sir.png" },
   { name: "Mohit Malviya", role: "Community Admin", whatsapp: "https://wa.me/917770897179", linkedin: "https://www.linkedin.com/in/mohitmalviya-ds", image: "https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/mohit%20.jpg" },
   { name: "Vishal Sable", role: "Community Admin", whatsapp: "https://wa.me/917224042964", linkedin: "https://linkedin.com/in/vishal-sable-14a008339", image: "https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/vishal%20image%20.png" },
+  { name: "Kunal Patwari", role: "Community Admin", whatsapp: "https://wa.me/919302166906", image: "https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/WhatsApp%20Image%202026-02-16%20at%2012.50.55.jpeg" },
 ];
 
 const CommunitySection = () => {
