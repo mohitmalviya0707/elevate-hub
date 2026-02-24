@@ -161,7 +161,7 @@ const RegistrationForm = () => {
                 </div>
                 <div className="border-t border-border pt-4">
                   <div className="text-muted-foreground mb-2">Scan QR Code</div>
-                  <div className="w-full aspect-square bg-white rounded-xl flex items-center justify-center border border-border shadow-inner overflow-hidden">
+                  <div className="w-40 h-40 mx-auto bg-white rounded-xl flex items-center justify-center border border-border shadow-inner overflow-hidden">
                   <img
                     src="https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/WhatsApp%20Image%202026-02-23%20at%2016.36.06.jpeg"
                     alt="InnovateX 2026 Payment QR Code"
