@@ -161,12 +161,14 @@ const RegistrationForm = () => {
                 </div>
                 <div className="border-t border-border pt-4">
                   <div className="text-muted-foreground mb-2">Scan QR Code</div>
-                  <div className="w-full aspect-square bg-muted/30 rounded-xl flex items-center justify-center border border-dashed border-border">
-                    <span className="text-muted-foreground text-xs text-center px-4">
-                      QR Code will be<br />added soon
-                    </span>
-                  </div>
-                </div>
+                  <div className="w-full aspect-square bg-white rounded-xl flex items-center justify-center border border-border shadow-inner overflow-hidden">
+                  <img
+                    src="https://raw.githubusercontent.com/mohitmalviya0707/hacthone-2026-college-/main/WhatsApp%20Image%202026-02-23%20at%2016.36.06.jpeg"
+                    alt="InnovateX 2026 Payment QR Code"
+                    className="w-full h-full object-contain p-3"
+                   />
+                  </div
+                </div>     
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Upload payment screenshot after paying ₹150 via UPI.
                 </p>
