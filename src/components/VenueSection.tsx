@@ -49,7 +49,7 @@ const VenueSection = () => {
           className="rounded-2xl overflow-hidden border-2 border-border h-[400px]"
         >
           <iframe
-            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.5!2d77.9!3d21.9!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0x0!2sSBITM%20Betul!5e0!3m2!1sen!2sin!4v1"
+            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3673.5!2d77.9037!3d21.9083!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x397d5ef6a4b4c4c1%3A0x8a7b2e2f1c3d4e5f!2sShri%20Balaji%20Institute%20of%20Technology%20%26%20Management%20(SBITM)!5e0!3m2!1sen!2sin!4v1709000000000"
             width="100%"
             height="100%"
             style={{ border: 0 }}
