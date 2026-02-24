@@ -22,14 +22,6 @@ const Footer = () => (
             ))}
           </div>
         </div>
-        <div>
-          <h4 className="font-display text-sm font-bold text-foreground mb-3">Contact</h4>
-          <div className="space-y-2 text-sm text-muted-foreground">
-            <p>📧 ecell@sbitm.edu.in</p>
-            <p>📱 Join our WhatsApp Community</p>
-            <p>📸 @betulsbitm</p>
-          </div>
-        </div>
       </div>
       <div className="border-t border-border pt-6 text-center">
         <p className="text-sm text-muted-foreground">© 2026 SBITM Betul - E-Cell & IT Community</p>
