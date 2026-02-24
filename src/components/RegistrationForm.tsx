@@ -167,7 +167,8 @@ const RegistrationForm = () => {
                     alt="InnovateX 2026 Payment QR Code"
                     className="w-full h-full object-contain p-3"
                    />
-                  </div    
+                  </div>
+                </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
                   Upload payment screenshot after paying ₹150 via UPI.
                 </p>
