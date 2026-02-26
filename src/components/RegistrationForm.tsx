@@ -4,8 +4,9 @@ import { supabase } from "@/integrations/supabase/client";
 import { Upload, CheckCircle, Loader2, X } from "lucide-react";
 
 const generateUniqueId = () => {
-  const num = Math.floor(1000 + Math.random() * 9000);
-  return `INX2026-${num}`;
+  const num = Math.floor(100000 + Math.random() * 900000);
+  const ts = Date.now().toString(36).slice(-4).toUpperCase();
+  return `INX2026-${num}-${ts}`;
 };
 
 const RegistrationForm = () => {
