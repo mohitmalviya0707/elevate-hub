@@ -48,8 +48,9 @@ const RegistrationForm = () => {
       setError("Please enter a valid email address.");
       return;
     }
-    if (form.leader_phone.length < 10) {
-      setError("Please enter a valid phone number.");
+    const phoneDigits = form.leader_phone.replace(/\D/g, "");
+    if (phoneDigits.length !== 10) {
+      setError("Phone number must be exactly 10 digits.");
       return;
     }
 
@@ -209,7 +210,7 @@ const RegistrationForm = () => {
                 { name: "team_name", label: "Team Name", type: "text", placeholder: "e.g. Code Crusaders" },
                 { name: "leader_name", label: "Leader Name", type: "text", placeholder: "Full name" },
                 { name: "leader_email", label: "Leader Email", type: "email", placeholder: "email@example.com" },
-                { name: "leader_phone", label: "Leader Phone", type: "tel", placeholder: "10-digit number" },
+                { name: "leader_phone", label: "Leader Phone", type: "tel", placeholder: "10-digit number", maxLength: 10 },
                 { name: "members", label: "Team Members (comma separated)", type: "text", placeholder: "Name1, Name2, Name3" },
                 { name: "college", label: "College / School Name", type: "text", placeholder: "Your institution name" },
               ].map((field) => (
@@ -222,8 +223,9 @@ const RegistrationForm = () => {
                     onChange={handleChange}
                     placeholder={field.placeholder}
                     required
+                    maxLength={(field as any).maxLength}
                     className="w-full px-4 py-3 rounded-xl bg-muted/50 border border-border text-foreground placeholder:text-muted-foreground/50 focus:outline-none focus:border-primary/60 focus:ring-1 focus:ring-primary/30 transition-all text-sm"
-                  />
+                   />
                 </div>
               ))}
 
