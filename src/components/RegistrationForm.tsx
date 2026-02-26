@@ -121,19 +121,19 @@ const RegistrationForm = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
         >
-          <div className="glass-card p-5 text-center">
+          <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Registration Fee</div>
-            <div className="font-display text-2xl font-bold text-foreground">₹150/team</div>
+            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹150/team</div>
             <div className="text-xs text-muted-foreground mt-1">Only ₹37.5 per person!</div>
           </div>
-          <div className="glass-card p-5 text-center">
+          <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Team Size</div>
-            <div className="font-display text-2xl font-bold text-foreground">3-4 Members</div>
+            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">3-4 Members</div>
             <div className="text-xs text-muted-foreground mt-1">Min 3, Max 4</div>
           </div>
-          <div className="glass-card p-5 text-center">
+          <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Prize Pool</div>
-            <div className="font-display text-2xl font-bold text-foreground">₹1600+</div>
+            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹1600+</div>
             <div className="text-xs text-muted-foreground mt-1">+ Certificates!</div>
           </div>
         </motion.div>
