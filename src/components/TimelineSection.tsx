@@ -5,7 +5,7 @@ const events = [
   {
     icon: "📝",
     title: "Registration Opens",
-    date: "February 10, 2026",
+    date: "February 26, 2026",
     desc: "Registration portal goes live. Start forming your teams and join our WhatsApp community!",
   },
   {
