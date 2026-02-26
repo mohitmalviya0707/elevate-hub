@@ -38,7 +38,7 @@ const AboutSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">About InnovateX 🚀</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">About InnovateX 🚀</h2>
           <div className="section-title-bar" />
         </motion.div>
 
@@ -46,7 +46,7 @@ const AboutSection = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-center text-muted-foreground text-lg max-w-3xl mx-auto mb-12"
+          className="text-center text-muted-foreground text-sm md:text-lg max-w-3xl mx-auto mb-12"
         >
           InnovateX is not just a hackathon—it's a launchpad for your ideas. Join India's brightest young minds in an intense, rewarding coding marathon that challenges you to innovate, collaborate, and create solutions that matter.
         </motion.p>

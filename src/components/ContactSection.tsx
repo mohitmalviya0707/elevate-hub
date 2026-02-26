@@ -13,7 +13,7 @@ const ContactSection = () => {
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.7 }}
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold mb-4">Contact Us</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold mb-4">Contact Us</h2>
           <div className="section-title-bar mb-8" />
         </motion.div>
 

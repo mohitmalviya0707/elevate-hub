@@ -14,7 +14,7 @@ const PrizesSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Prizes & Rewards 🎁</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">Prizes & Rewards 🎁</h2>
           <div className="section-title-bar" />
           <p className="text-primary font-display font-bold text-lg mt-6">Total Prize Pool Worth ₹1,600+</p>
         </motion.div>

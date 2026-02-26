@@ -21,7 +21,7 @@ const CommunitySection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Join Our Community 🌟</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">Join Our Community 🌟</h2>
           <div className="section-title-bar" />
         </motion.div>
 
@@ -32,10 +32,10 @@ const CommunitySection = () => {
           transition={{ duration: 0.5, delay: 0.15 }}
           className="community-box mb-10"
         >
-          <h3 className="font-display text-xl md:text-2xl font-bold text-secondary mb-4">
+          <h3 className="font-display text-base md:text-2xl font-bold text-secondary mb-4">
             ⚠️ MANDATORY - Join Our WhatsApp Community
           </h3>
-          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto">
+          <p className="text-muted-foreground mb-6 max-w-2xl mx-auto text-sm md:text-base">
             Stay updated with InnovateX details, internship opportunities, job postings, and more exciting events! Joining this community is MANDATORY for all participants.
           </p>
           <a href="https://chat.whatsapp.com/ElD5RRs2YNjAp6paXpCNQo" target="_blank" rel="noopener noreferrer" className="btn-whatsapp text-lg">📱 Join WhatsApp Community</a>

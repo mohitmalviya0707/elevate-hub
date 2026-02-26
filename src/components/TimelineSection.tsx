@@ -37,7 +37,7 @@ const TimelineSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-16"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Event Timeline</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">Event Timeline</h2>
           <div className="section-title-bar" />
         </motion.div>
 

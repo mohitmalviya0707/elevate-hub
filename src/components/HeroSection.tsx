@@ -13,7 +13,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8 }}
-          className="font-display text-4xl sm:text-5xl md:text-7xl font-black tracking-tight leading-tight mb-4"
+          className="font-display text-2xl sm:text-4xl md:text-7xl font-black tracking-tight leading-tight mb-4"
         >
           🚀 <span className="text-gradient-brand">INNOVATEX 2026</span>
         </motion.h2>
@@ -22,7 +22,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
-          className="font-display text-xl md:text-2xl text-primary mb-6"
+          className="font-display text-base md:text-2xl text-primary mb-6"
         >
           Code. Innovate. Transform.
         </motion.p>
@@ -31,7 +31,7 @@ const HeroSection = () => {
           initial={{ opacity: 0, y: 30 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-muted-foreground text-lg max-w-2xl mx-auto mb-8"
+          className="text-muted-foreground text-sm md:text-lg max-w-2xl mx-auto mb-8"
         >
           Join the ultimate hackathon at SBITM Betul! Showcase your skills, win amazing prizes, and network with the best minds.
         </motion.p>

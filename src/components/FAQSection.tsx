@@ -29,7 +29,7 @@ const FAQSection = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-12"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Frequently Asked Questions 💬</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">FAQs 💬</h2>
           <div className="section-title-bar" />
         </motion.div>
 

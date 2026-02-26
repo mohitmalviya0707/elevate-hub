@@ -99,7 +99,7 @@ const RegistrationForm = () => {
           transition={{ duration: 0.7 }}
           className="text-center mb-8"
         >
-          <h2 className="font-display text-3xl md:text-4xl font-bold">Registration Details 📝</h2>
+          <h2 className="font-display text-2xl md:text-4xl font-bold">Registration Details 📝</h2>
           <div className="section-title-bar" />
         </motion.div>
 
@@ -119,7 +119,7 @@ const RegistrationForm = () => {
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.5, delay: 0.15 }}
-          className="grid grid-cols-3 gap-4 mb-10"
+          className="grid grid-cols-1 sm:grid-cols-3 gap-4 mb-10"
         >
           <div className="glass-card p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Registration Fee</div>
