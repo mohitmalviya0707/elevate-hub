@@ -1,7 +1,8 @@
 import { useState, useRef } from "react";
 import { motion, useInView, AnimatePresence } from "framer-motion";
 import { supabase } from "@/integrations/supabase/client";
-import { Upload, CheckCircle, Loader2, X } from "lucide-react";
+import { processAndUpload, validateFile } from "@/lib/fileUpload";
+import { Upload, CheckCircle, Loader2, X, AlertCircle } from "lucide-react";
 
 const generateUniqueId = () => {
   const num = Math.floor(100000 + Math.random() * 900000);
@@ -22,10 +23,25 @@ const RegistrationForm = () => {
     college: "",
   });
   const [file, setFile] = useState<File | null>(null);
+  const [fileError, setFileError] = useState("");
   const [paid, setPaid] = useState(false);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState("");
   const [success, setSuccess] = useState<{ id: string } | null>(null);
+
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = e.target.files?.[0] || null;
+    setFileError("");
+    if (selected) {
+      const validationError = validateFile(selected);
+      if (validationError) {
+        setFileError(validationError);
+        setFile(null);
+        return;
+      }
+    }
+    setFile(selected);
+  };
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setForm({ ...form, [e.target.name]: e.target.value });
@@ -61,10 +77,12 @@ const RegistrationForm = () => {
       const fileExt = file.name.split(".").pop();
       const filePath = `${uniqueId}.${fileExt}`;
 
-      const { error: uploadError } = await supabase.storage
-        .from("payment-screenshots")
-        .upload(filePath, file);
-      if (uploadError) throw new Error("Failed to upload screenshot. Please try again.");
+      const uploadResult = await processAndUpload(file, filePath);
+      if (!uploadResult.success) {
+        setError('error' in uploadResult ? uploadResult.error : "Upload failed.");
+        setLoading(false);
+        return;
+      }
 
       const membersArray = form.members.split(",").map((m) => m.trim()).filter(Boolean);
 
@@ -240,11 +258,17 @@ const RegistrationForm = () => {
                   </span>
                   <input
                     type="file"
-                    accept="image/*"
-                    onChange={(e) => setFile(e.target.files?.[0] || null)}
+                    accept="image/png,image/jpeg,application/pdf"
+                    onChange={handleFileChange}
                     className="hidden"
                   />
                 </label>
+                {fileError && (
+                  <div className="flex items-center gap-2 text-sm text-destructive mt-1">
+                    <AlertCircle size={14} />
+                    {fileError}
+                  </div>
+                )}
               </div>
 
               <label className="flex items-start gap-3 cursor-pointer">
