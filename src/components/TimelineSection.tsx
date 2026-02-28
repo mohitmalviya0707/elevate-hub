@@ -12,7 +12,7 @@ const events = [
     icon: "⏰",
     title: "Registration Closes",
     date: "March 23, 2026",
-    desc: "Last date to register. Pay ₹150 and secure your spot!",
+    desc: "Last date to register. Pay ₹300 and secure your spot!",
   },
   {
     icon: "🚀",

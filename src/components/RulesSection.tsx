@@ -18,7 +18,7 @@ const rules = [
     items: [
       "Eligibility: Class 12 & UG students from ANY college",
       "Team Size: 3-4 members (Minimum 3, Maximum 4)",
-      "Registration Fee: ₹150 per team",
+      "Registration Fee: ₹300 per team",
       "Important: One participant can join only ONE team",
       "Required: Must bring your own laptop",
     ],

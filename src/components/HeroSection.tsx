@@ -79,7 +79,7 @@ const HeroSection = () => {
           className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-16"
         >
           {[
-            { icon: "💰", value: "₹1600+", label: "Prize Pool" },
+            { icon: "💰", value: "₹10,000+", label: "Prize Pool" },
             { icon: "👥", value: "100+", label: "Expected Participants" },
             { icon: "⏱️", value: "6.5 hrs", label: "Intense Coding" },
             { icon: "🏆", value: "TOP 2", label: "Winning Teams" },

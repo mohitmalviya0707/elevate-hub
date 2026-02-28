@@ -142,8 +142,8 @@ const RegistrationForm = () => {
         >
           <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Registration Fee</div>
-            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹150/team</div>
-            <div className="text-xs text-muted-foreground mt-1">Only ₹37.5 per person!</div>
+            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹300/team</div>
+            <div className="text-xs text-muted-foreground mt-1">Only ₹75 per person!</div>
           </div>
           <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Team Size</div>
@@ -152,7 +152,7 @@ const RegistrationForm = () => {
           </div>
           <div className="glass-card p-4 sm:p-5 text-center">
             <div className="text-xs text-primary uppercase tracking-wider font-semibold mb-1">Prize Pool</div>
-            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹1600+</div>
+            <div className="font-display text-lg sm:text-2xl font-bold text-foreground">₹10,000+</div>
             <div className="text-xs text-muted-foreground mt-1">+ Certificates!</div>
           </div>
         </motion.div>
@@ -170,7 +170,7 @@ const RegistrationForm = () => {
               <div className="space-y-4 text-sm">
                 <div>
                   <div className="text-muted-foreground mb-1">Registration Fee</div>
-                  <div className="font-display text-2xl font-bold text-primary">₹150</div>
+                  <div className="font-display text-2xl font-bold text-primary">₹300</div>
                   <div className="text-muted-foreground text-xs">per team</div>
                 </div>
                 <div className="border-t border-border pt-4">
@@ -190,7 +190,7 @@ const RegistrationForm = () => {
                   </div>
                 </div>
                 <p className="text-xs text-muted-foreground leading-relaxed">
-                  Upload payment screenshot after paying ₹150 via UPI.
+                  Upload payment screenshot after paying ₹300 via UPI.
                 </p>
               </div>
 
@@ -203,7 +203,7 @@ const RegistrationForm = () => {
                     "Team Leader Details - Name, Email, Phone",
                     "Team Member Details - Names of all 3-4 members",
                     "College/School Name - Your institution name",
-                    "Payment Proof - Screenshot of ₹150 payment",
+                    "Payment Proof - Screenshot of ₹300 payment",
                     "WhatsApp Community - Confirmation of joining",
                   ].map((item) => (
                     <li key={item} className="py-1.5 border-b border-border/30 last:border-0">{item}</li>
@@ -279,7 +279,7 @@ const RegistrationForm = () => {
                   className="mt-1 w-4 h-4 rounded border-border accent-primary"
                 />
                 <span className="text-sm text-muted-foreground">
-                  I have paid the registration fee of ₹150
+                  I have paid the registration fee of ₹300
                 </span>
               </label>
 
