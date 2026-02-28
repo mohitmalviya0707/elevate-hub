@@ -295,7 +295,7 @@
 </head>
 <body>
 
-
+<!-- Firebase config (accessed via dynamic import in submit) -->
 <script>
     window.__fbConfig = {
         apiKey: "AIzaSyDeaSWt3dHbp8Szq5q3-1ahvcKkXFc6B20",
@@ -319,7 +319,7 @@
     })();
 </script>
 
-
+<!-- Animated Background -->
 <div class="bg-animation">
     <div class="circuit" style="left:10%"></div>
     <div class="circuit" style="left:25%;animation-delay:1s"></div>
@@ -329,7 +329,7 @@
     <div class="circuit" style="left:85%;animation-delay:2.5s"></div>
 </div>
 
-
+<!-- Header -->
 <header>
     <div class="header-inner">
         <div class="logo-section">
@@ -351,7 +351,7 @@
     </div>
 </header>
 
-
+<!-- Hero -->
 <section class="hero">
     <h2>🚀 INNOVATEX 2026</h2>
     <p class="tagline">Code. Innovate. Transform.</p>
@@ -371,7 +371,7 @@
     <p style="margin-top:1.5rem;font-size:1rem;color:#ff6b35;font-weight:bold;">⚡ Registration closes March 23, 2026</p>
 </section>
 
-
+<!-- Stats -->
 <section style="padding:3rem 2rem;">
     <div style="max-width:1000px;margin:0 auto;display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:1.5rem;">
         <div style="text-align:center;padding:1.5rem 1rem;background:linear-gradient(135deg,rgba(74,158,255,0.2),rgba(74,158,255,0.05));border-radius:15px;border:1px solid rgba(74,158,255,0.3);">
@@ -389,7 +389,7 @@
     </div>
 </section>
 
-
+<!-- About -->
 <section id="about">
     <h2 class="section-title">About InnovateX 🚀</h2>
     <div style="text-align:center;max-width:800px;margin:0 auto 3rem;">
@@ -402,7 +402,7 @@
     </div>
 </section>
 
-
+<!-- Community -->
 <section id="community">
     <h2 class="section-title">Join Our Community 🌟</h2>
     <div class="community-highlight">
@@ -437,7 +437,7 @@
     </div>
 </section>
 
-
+<!-- Rules -->
 <section id="rules">
     <h2 class="section-title">Rules & Guidelines</h2>
     <div class="cards-grid">
@@ -457,7 +457,7 @@
     </div>
 </section>
 
-
+<!-- Timeline -->
 <section id="timeline">
     <h2 class="section-title">Event Timeline</h2>
     <div class="timeline">
@@ -476,6 +476,7 @@
     </div>
 </section>
 
+<!-- Prizes -->
 <section id="prizes">
     <h2 class="section-title">Prizes & Rewards 🎁</h2>
     <p style="text-align:center;font-size:1.2rem;color:#cbd5e0;margin-bottom:3rem;">Total Prize Pool Worth <strong style="color:#ffd700;">₹10,000+</strong></p>
@@ -510,7 +511,7 @@
     </div>
 </section>
 
-
+<!-- ======================== REGISTRATION SECTION ======================== -->
 <section id="register">
     <h2 class="section-title">🚀 Complete Registration</h2>
 
@@ -520,7 +521,7 @@
 
     <div class="reg-wrapper">
 
-        
+        <!-- Step Bar -->
         <div class="steps-bar">
             <div class="step-item">
                 <div class="step-circle active" id="sc1">1</div>
@@ -538,7 +539,7 @@
             </div>
         </div>
 
-       
+        <!-- PANEL 1 – Team Info -->
         <div class="reg-panel active" id="panel1">
             <div class="panel-title">Step 1 – <span>Team Details</span></div>
 
@@ -579,7 +580,7 @@
             <button class="btn-next" onclick="goToStep2()">Next – Pay ₹300 →</button>
         </div>
 
-        
+        <!-- PANEL 2 – Payment QR -->
         <div class="reg-panel" id="panel2">
             <div class="panel-title">Step 2 – <span>Payment</span></div>
 
@@ -610,11 +611,11 @@
                 <button class="btn-back" onclick="goToStep(1)">← Back</button>
                 <button class="btn-next" onclick="goToStep3()">Next – Review →</button>
             </div>
-            
+            <!-- hidden: keep fee updated -->
             <input type="hidden" id="feeAmount" value="300">
         </div>
 
-      
+        <!-- PANEL 3 – Confirm & Submit -->
         <div class="reg-panel" id="panel3">
             <div class="panel-title">Step 3 – <span>Review & Submit</span></div>
 
@@ -640,7 +641,7 @@
             </div>
         </div>
 
-       
+        <!-- SUCCESS BOX -->
         <div class="success-box" id="successBox">
             <div class="tick">🎉</div>
             <h3>Registration Successful!</h3>
@@ -653,7 +654,7 @@
     </div>
 </section>
 
-
+<!-- FAQ -->
 <section style="background:rgba(26,41,66,0.3);padding:4rem 2rem;">
     <div style="max-width:1200px;margin:0 auto;">
         <h2 class="section-title">Frequently Asked Questions 💬</h2>
@@ -668,7 +669,7 @@
     </div>
 </section>
 
-
+<!-- Venue -->
 <section id="location">
     <h2 class="section-title">Event Venue</h2>
     <div class="card">
@@ -681,7 +682,7 @@
     </div>
 </section>
 
-
+<!-- Contact -->
 <section>
     <h2 class="section-title">Contact Us</h2>
     <div class="card" style="max-width:600px;margin:0 auto;text-align:center;">
@@ -697,12 +698,12 @@
     </div>
 </section>
 
-
+<!-- Floating CTA -->
 <div class="floating-cta">
     <a href="#register"><span>🚀</span><span>Register Now</span></a>
 </div>
 
-
+<!-- Footer -->
 <footer>
     <div style="max-width:1200px;margin:0 auto;">
         <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2rem;text-align:left;margin-bottom:2rem;">
@@ -719,7 +720,7 @@
     </div>
 </footer>
 
-
+<!-- Multi-step form logic -->
 <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
     // ------- HELPERS -------
     function showMsg(id, text) {
@@ -858,7 +859,7 @@
     }
 </script>
 
-
+<!-- Smooth scroll -->
 <script>
     document.querySelectorAll('a[href^="#"]').forEach(a => {
         a
